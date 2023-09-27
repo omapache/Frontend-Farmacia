@@ -62,7 +62,7 @@ li {
 	display: none;
 }
 #sidebar .brand {
-	font-size: 24px;
+	font-size: 25px;
 	display: flex;
 	align-items: center;
 	height: 64px;
@@ -83,6 +83,15 @@ li {
 	align-items: center;
 	margin-right: 6px;
 }
+
+#sidebar #corazoncito {
+	min-width: 48px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-right: 6px;
+}
+
 #sidebar .icon-right {
 	margin-left: auto;
 	transition: all .3s ease;
@@ -115,11 +124,16 @@ li {
 #sidebar .side-menu > li > a.active .icon-right {
 	transform: rotateZ(90deg);
 }
-#sidebar .side-menu > li > a.active,
-#sidebar .side-menu > li > a.active:hover {
+#sidebar .side-menu > li > a.active {
 	background: var(--blue);
 	color: var(--light);
 }
+
+#sidebar .side-menu > li > a.active:hover {
+	background: #9dabd4;
+	color: #000;
+}
+
 #sidebar .divider {
 	margin-top: 24px;
 	font-size: 12px;
@@ -199,6 +213,11 @@ li {
 	width: calc(100% - 60px);
 	left: 60px;
 }
+
+#iconos {
+	margin-right: 5%;
+}
+
 /* NAVBAR */
 nav {
 	background: var(--light);
@@ -313,9 +332,10 @@ nav .profile .profile-link a:hover {
 	background: var(--grey);
 }
 
-#corazoncito {
-	margin-right: 2%;
-}
+/* #corazoncito {
+	margin-left: 10%;
+	margin-right: 15%;
+} */
 
 /* NAVBAR */
 
@@ -356,6 +376,7 @@ main .breadcrumbs li.divider {
 	color: #8D8D8D;
 	pointer-events: none;
 }
+
 main .info-data {
 	margin-top: 36px;
 	display: grid;
