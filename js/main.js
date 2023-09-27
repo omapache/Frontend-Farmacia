@@ -1,15 +1,8 @@
-const URL = "http://localhost:5115"
-const urlValidation = "/api/farmacia/User/validate-credentials"
-const headers = new Headers({'Content-Type': 'application/json'});
 const botonLogin = document.getElementById('botoncito');
 
+botonLogin.addEventListener("click", Validar);
 
-botonLogin.addEventListener("click", function (e) {
-    e.eventpreventDefault();
-    Validar2();
-});
-
-/* async function Validar() {
+async function Validar() {
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
 
@@ -19,7 +12,7 @@ botonLogin.addEventListener("click", function (e) {
     };
 
     try {
-        const response = await fetch(`${url}/api/farmacia/User/validate-credentials`, {
+        const response = await fetch("http://localhost:5115/api/farmacia/User/validate-credentials", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -28,35 +21,11 @@ botonLogin.addEventListener("click", function (e) {
         });
 
         if (response.ok) {
-            const result = await response.json();
-            if (result === true) {
-                console.log("ENTROOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
-                 window.location.href = "../index.html";
-            } else {
-                console.error("Credenciales incorrectas");
-            }
+            window.location.href = "pagina-deseada.html";
         } else {
-            console.error("Error de red AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+            console.error("Credenciales incorrectas");
         }
     } catch (error) {
-        console.error("Error de red: ", error);
+        console.error("Error de red", error);
     }
-} */
-
-async function Validar2() {
-    debugger
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
-    let data = {
-        "username": "user5",
-        "password": "password5"
-    }
-    let config = {
-        method: 'POST',
-        headers: headers,
-        body: JSON.stringify(data)
-    }
-    await fetch(`http://localhost:5115/api/farmacia/User/validate-credentials`,config).json();
 }
-
-
