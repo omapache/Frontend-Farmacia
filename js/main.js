@@ -1,58 +1,62 @@
-(function($) {
-    "use strict";
-    $('.input100').each(function() {
-        $(this).on('blur', function() {
-            if ($(this).val().trim() != "") {
-                $(this).addClass('has-val');
-            } else {
-                $(this).removeClass('has-val');
-            }
-        })
-    })
-    $('.validate-input .input100').each(function() {
-        $(this).on('blur', function() {
-            if (validate(this) == false) {
-                showValidate(this);
-            } else {
-                $(this).parent().addClass('true-validate');
-            }
-        })
-    })
-    var input = $('.validate-input .input100');
-    $('.validate-form').on('submit', function() {
-        var check = true;
-        for (var i = 0; i < input.length; i++) {
-            if (validate(input[i]) == false) {
-                showValidate(input[i]);
-                check = false;
-            }
-        }
-        return check;
-    });
-    $('.validate-form .input100').each(function() {
-        $(this).focus(function() {
-            hideValidate(this);
-            $(this).parent().removeClass('true-validate');
+const URL = "http://localhost:5115"
+const urlValidation = "/api/farmacia/User/validate-credentials"
+const headers = new Headers({'Content-Type': 'application/json'});
+const botonLogin = document.getElementById('botoncito');
+
+
+botonLogin.addEventListener("click", function (e) {
+    e.eventpreventDefault();
+    Validar2();
+});
+
+/* async function Validar() {
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+
+    const data = {
+        Username: username,
+        Password: password
+    };
+
+    try {
+        const response = await fetch(`${url}/api/farmacia/User/validate-credentials`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
         });
-    });
-    function validate(input) {
-        if ($(input).attr('type') == 'email' || $(input).attr('name') == 'email') {
-            if ($(input).val().trim().match(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/) == null) {
-                return false;
+
+        if (response.ok) {
+            const result = await response.json();
+            if (result === true) {
+                console.log("ENTROOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
+                 window.location.href = "../index.html";
+            } else {
+                console.error("Credenciales incorrectas");
             }
         } else {
-            if ($(input).val().trim() == '') {
-                return false;
-            }
+            console.error("Error de red AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
         }
+    } catch (error) {
+        console.error("Error de red: ", error);
     }
-    function showValidate(input) {
-        var thisAlert = $(input).parent();
-        $(thisAlert).addClass('alert-validate');
+} */
+
+async function Validar2() {
+    debugger
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+    let data = {
+        "username": "user5",
+        "password": "password5"
     }
-    function hideValidate(input) {
-        var thisAlert = $(input).parent();
-        $(thisAlert).removeClass('alert-validate');
+    let config = {
+        method: 'POST',
+        headers: headers,
+        body: JSON.stringify(data)
     }
+    await fetch(`http://localhost:5115/api/farmacia/User/validate-credentials`,config).json();
 }
-)(jQuery);
+
+
