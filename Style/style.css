@@ -10,13 +10,12 @@
 :root {
 	--grey: #F1F0F6;
 	--dark-grey: #8D8D8D;
-	--light: #fff;
+--light: #fff;
 	--dark: #000;
 	--green: #81D43A;
 	--light-green: #E3FFCB;
-	--blue: #1775F1;
+	--blue: #5e9cee;
 	--light-blue: #D0E4FF;
-	--dark-blue: #0C5FCD;
 	--red: #FC3B56;
 }
 
@@ -36,11 +35,6 @@ a {
 li {
 	list-style: none;
 }
-
-
-
-
-
 
 
 /* SIDEBAR */
@@ -194,10 +188,6 @@ li {
 }
 /* SIDEBAR */
 
-
-
-
-
 /* CONTENT */
 #content {
 	position: relative;
@@ -322,9 +312,12 @@ nav .profile .profile-link a {
 nav .profile .profile-link a:hover {
 	background: var(--grey);
 }
+
+#corazoncito {
+	margin-right: 2%;
+}
+
 /* NAVBAR */
-
-
 
 /* MAIN */
 main {
@@ -332,10 +325,16 @@ main {
 	padding: 24px 20px 20px 20px;
 }
 main .title {
+	color: black;
 	font-size: 28px;
 	font-weight: 600;
 	margin-bottom: 10px;
 }
+
+.title:hover {
+	color: #5e9cee;
+}
+
 main .breadcrumbs {
 	display: flex;
 	grid-gap: 6px;
@@ -345,11 +344,16 @@ main .breadcrumbs li a {
 	font-size: 14px;
 }
 main .breadcrumbs li a {
-	color: var(--blue);
+	color: #434d69;
 }
+
+main .breadcrumbs li a:hover {
+	color: #719de0;
+}
+
 main .breadcrumbs li a.active,
 main .breadcrumbs li.divider {
-	color: var(--dark-grey);
+	color: #8D8D8D;
 	pointer-events: none;
 }
 main .info-data {
@@ -579,11 +583,6 @@ main .btn-send:hover {
 }
 /* MAIN */
 /* CONTENT */
-
-
-
-
-
 
 @media screen and (max-width: 768px) {
 	#content {
