@@ -1,7 +1,8 @@
 const botonLogin = document.getElementById('botoncito');
 
-botonLogin.addEventListener("click", console.log("entro"), Validar());
-async function Validar(){
+botonLogin.addEventListener("click", Validar);
+
+async function Validar() {
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
 
