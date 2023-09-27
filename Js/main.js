@@ -1,3 +1,5 @@
+
+
 const URL = "http://localhost:5115"
 const urlValidation = "/api/farmacia/User/validate-credentials"
 const headers = new Headers({'Content-Type': 'application/json'});
