@@ -1,58 +1,30 @@
-(function($) {
-    "use strict";
-    $('.input100').each(function() {
-        $(this).on('blur', function() {
-            if ($(this).val().trim() != "") {
-                $(this).addClass('has-val');
-            } else {
-                $(this).removeClass('has-val');
-            }
-        })
-    })
-    $('.validate-input .input100').each(function() {
-        $(this).on('blur', function() {
-            if (validate(this) == false) {
-                showValidate(this);
-            } else {
-                $(this).parent().addClass('true-validate');
-            }
-        })
-    })
-    var input = $('.validate-input .input100');
-    $('.validate-form').on('submit', function() {
-        var check = true;
-        for (var i = 0; i < input.length; i++) {
-            if (validate(input[i]) == false) {
-                showValidate(input[i]);
-                check = false;
-            }
-        }
-        return check;
-    });
-    $('.validate-form .input100').each(function() {
-        $(this).focus(function() {
-            hideValidate(this);
-            $(this).parent().removeClass('true-validate');
+const botonLogin = document.getElementById('botoncito');
+
+botonLogin.addEventListener("click", console.log("entro"), Validar());
+async function Validar(){
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+
+    const data = {
+        Username: username,
+        Password: password
+    };
+
+    try {
+        const response = await fetch("http://localhost:5115/api/farmacia/User/validate-credentials", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
         });
-    });
-    function validate(input) {
-        if ($(input).attr('type') == 'email' || $(input).attr('name') == 'email') {
-            if ($(input).val().trim().match(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/) == null) {
-                return false;
-            }
+
+        if (response.ok) {
+            window.location.href = "pagina-deseada.html";
         } else {
-            if ($(input).val().trim() == '') {
-                return false;
-            }
+            console.error("Credenciales incorrectas");
         }
-    }
-    function showValidate(input) {
-        var thisAlert = $(input).parent();
-        $(thisAlert).addClass('alert-validate');
-    }
-    function hideValidate(input) {
-        var thisAlert = $(input).parent();
-        $(thisAlert).removeClass('alert-validate');
+    } catch (error) {
+        console.error("Error de red", error);
     }
 }
-)(jQuery);
