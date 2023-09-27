@@ -69,6 +69,7 @@ li {
 	font-weight: 700;
 	color: var(--blue);
 	position: sticky;
+	margin-top: 5%;
 	top: 0;
 	left: 0;
 	z-index: 100;
