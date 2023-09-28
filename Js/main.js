@@ -10,7 +10,6 @@ botonLogin.addEventListener("click", function (e) {
 
 
 async function Validar() {
-    debugger;
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
 
@@ -38,6 +37,3 @@ async function Validar() {
         console.error("Error de red: ", error);
     }
 }
-
-
-
