@@ -37,6 +37,3 @@ async function Validar() {
         console.error("Error de red: ", error);
     }
 }
-
-
-
