@@ -1,5 +1,6 @@
 const URL = "http://localhost:5115";
 const urlValidation = "/api/farmacia/User/validate-credentials";
+const urlRefresh ="/api/farmacia/User/refresh-token";
 const headers = new Headers({ 'Content-Type': 'application/json' });
 const botonLogin = document.getElementById('botoncito');
 
@@ -10,7 +11,6 @@ botonLogin.addEventListener("click", function (e) {
 
 
 async function Validar() {
-    debugger;
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
 
@@ -29,7 +29,14 @@ async function Validar() {
         const response = await fetch(`${URL}${urlValidation}`, config);
 
         if (response.ok) {
-            console.log("ENTROOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
+            const responseRefresh = await fetch(`${URL}${urlRefresh}`, config);
+            if(responseRefresh.ok) {
+                console.log("token OK");
+            }
+            else
+            {
+                console.error("Error de Refresh Token");
+            }
             window.location.href = "../index.html";
         } else {
             console.error("Error de red");
