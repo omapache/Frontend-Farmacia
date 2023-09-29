@@ -617,3 +617,20 @@ main .btn-send:hover {
 		display: none;
 	}
 }
+
+/* Estilos para el contenido del modal */
+#miModalContent {
+    background-color: white;
+    width: 50%;
+    margin: 100px auto;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+}
+
+/* Estilos para el botón de cierre del modal */
+#miModalFooter .btn-secondary {
+    float: right;
+    cursor: pointer;
+}
+
