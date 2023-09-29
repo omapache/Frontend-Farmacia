@@ -1,15 +1,15 @@
 let botonCerrarModal = document.getElementById('CerrarModal');
-document.addEventListener('DOMContentLoaded', function() {
+/* document.addEventListener('DOMContentLoaded', function() {
     cargarProveedores();
     cargarMedicamentos();
-});
+}); */
 
 if (botonCerrarModal) {
     botonCerrarModal.addEventListener('click', function () {
         cerrarModal();
     });
 }
-
+/* 
 // Obtén el elemento select por su ID
 var select = document.getElementById('dropdownProveedor');
 
@@ -50,7 +50,7 @@ function validarAnio(inputAnio) {
         abrirModal();
     } 
 }
-
+ */
 
 function cerrarModal() {
     // Obtiene el elemento modal por su id
@@ -60,9 +60,9 @@ function cerrarModal() {
     if (modal) {
         modal.classList.remove('show');
         modal.style.display = 'none';
-        var modalTitle = document.getElementById('TituloResultadoConsultaInventario');
+        var modalTitle = document.getElementById('TituloResultadoConsulta');
         modalTitle.innerHTML = '';
-        var modalBody = document.getElementById('resultadoConsultaInventario');
+        var modalBody = document.getElementById('resultadoConsulta');
         modalBody.innerHTML = '';
     }
 }
@@ -76,7 +76,7 @@ function abrirModal() {
         modal.style.display = 'block';
     }
 }
-
+/* 
 function cargarProveedores() {
     fetch('http://localhost:5115/api/farmacia/persona')
         .then(response => response.json()) // Parsear la respuesta JSON
@@ -121,4 +121,4 @@ function cargarMedicamentos() {
         .catch(error => {
             console.error('Error al cargar los medicamentos:', error);
         });
-}
+} */
