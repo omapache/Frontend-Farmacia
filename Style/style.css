@@ -617,3 +617,20 @@ main .btn-send:hover {
 		display: none;
 	}
 }
+
+/* CSS personalizado para el dropdown */
+#dropdownProveedor {
+    background-color: #6c757d; /* Cambia el color de fondo */
+    color: white; /* Cambia el color del texto */
+}
+#input-fecha {
+    background-color: #6c757d; /* Cambia el color de fondo */
+    color: white; /* Cambia el color del texto */
+}#inputAnio9,#inputAnio15,#inputAnio18 {
+    background-color: #6c757d; /* Cambia el color de fondo */
+    color: white; /* Cambia el color del texto */
+}
+#dropdownMedicamento {
+    background-color: #6c757d; /* Cambia el color de fondo */
+    color: white; /* Cambia el color del texto */
+}
