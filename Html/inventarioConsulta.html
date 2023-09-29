@@ -8,11 +8,23 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="../Style/style.css">
-    <script src="../js/home.js" async></script>
-    <script src="../js/app.js" defer type="module"></script>
     <link rel="shortcut icon" href="../Image/hospital.svg">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <title>Farmacia Campus</title>
+    <!-- Dentro de la sección <head> -->
+    <script>
+        function abrirModal() {
+            // Obtiene el elemento modal por su id
+            var modal = document.getElementById('staticBackdrop');
+
+            // Abre el modal
+            if (modal) {
+                modal.classList.add('show');
+                modal.style.display = 'block';
+            }
+        }
+    </script>
+
 </head>
 
 <body>
@@ -62,12 +74,52 @@
             </a>
             <div class="info-data">
                 <!-- Primer boton -->
-                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="botonConsulta1">
+                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                    id="botonConsulta1">
                     <b>Consulta número: 1 </b>
                     <p>todos los medicamentos con menos de 50 unidades en stock</p>
                 </button>
+                <!-- tercer boton -->
+                <div class="btn btn-secondary" id="botonConsulta3">
+                    <div>
+                        <b>Consulta número: 3 </b>
+                        <p>Medicamentos comprados a: </p>
+                        <div>
+                            <select class="form-select" aria-label="Default select example" id="dropdownProveedor">
+                            </select>
+                        </div>
 
+                    </div>
+                </div>
+                <!-- sexto boton -->
+                <div class="btn btn-secondary" id="botonConsulta6">
+                    <div>
+                        <b>Consulta número: 6 </b>
+                        <p>Medicamentos que caducan antes del:</p>
+                        <input type="date" class="form-control" id="input-fecha">
+                    </div>
+                </div>
+                <!-- noveno boton -->
+                <div class="btn btn-secondary" id="botonConsulta9">
+                    <div>
+                        <b>Consulta número: 9 </b>
+                        <p>Medicamentos que no han sido vendidos antes del</p>
+                        <input type="text"  class="form-control" id="inputAnio" placeholder="Año (YYYY)" maxlength="4" >
 
+                    </div>
+                </div>
+                <!-- doceavo boton -->
+                <div class="btn btn-secondary" id="botonConsulta12">
+                    <div>
+                        <b>Consulta número: 12 </b>
+                        <p>Pacientes que han comprado: </p>
+                        <div>
+                            <select class="form-select" aria-label="Default select example" id="dropdownMedicamento">
+                            </select>
+                        </div>
+
+                    </div>
+                </div>
                 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
                     tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                     <div class="modal-dialog">
@@ -79,7 +131,8 @@
                             <div class="modal-body" id="resultadoConsultaInventario">
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                                    id="CerrarModal">Close</button>
                             </div>
                         </div>
                     </div>
@@ -91,7 +144,10 @@
     </section>
     <!-- NAVBAR -->
 </body>
+<script src="../js/home.js" async></script>
 <script src="../Js/Andres.js" type="module" defer></script>
+<script src="../Js/Owen.js" type="module" defer></script>
+<script src="../Js/Modal.js" type="module" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>

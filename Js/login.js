@@ -27,6 +27,13 @@ async function Validar() {
 
     try {
         const response = await fetch(`${URL}${urlValidation}`, config);
+        
+        /* setTimeout(function(){
+            console.log(response);
+        }, 10000);
+        
+        console.log(response); */
+
 
         if (response.ok) {
             const responseRefresh = await fetch(`${URL}${urlRefresh}`, config);
@@ -37,7 +44,7 @@ async function Validar() {
             {
                 console.error("Error de Refresh Token");
             }
-            window.location.href = "../index.html";
+            window.location.href = "../Html/homeEmpleado.html";
         } else {
             console.error("Error de red");
         }
