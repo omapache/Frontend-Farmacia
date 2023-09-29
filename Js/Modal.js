@@ -44,6 +44,10 @@ var inputAnio18 = document.getElementById('inputAnio18');
 inputAnio18.addEventListener('input', function () {
     validarAnio(inputAnio18);
 });
+var inputAnio24 = document.getElementById('inputAnio24');
+inputAnio24.addEventListener('input', function () {
+    validarAnio(inputAnio24);
+});
 function validarAnio(inputAnio) {
     var anio = inputAnio.value;
     if (anio.length === 4 && !isNaN(anio)) {
