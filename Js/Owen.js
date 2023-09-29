@@ -1,3 +1,4 @@
+import {abrirModal} from "./Modal.js"
 
 const URL = "http://localhost:5115/api/farmacia/";
 const urlInventario = "inventarioMedicamento";
@@ -8,11 +9,48 @@ const headers = new Headers({ 'Content-Type': 'application/json' });
 let modalTitle = document.getElementById("TituloResultadoConsultaInventario");
 let modalBody = document.getElementById("resultadoConsultaInventario");
 const botonConsulta3 = document.getElementById('botonConsulta3');
+
+var select = document.getElementById('dropdownProveedor');
+
+if (select) {
+    select.addEventListener('change', function () {
+        abrirModal();
+    });
+}
+var selectm = document.getElementById('dropdownMedicamento');
+
+if (selectm) {
+    selectm.addEventListener('change', function () {
+        abrirModal();
+    });
+}
+let inputFecha = document.getElementById('input-fecha');
+
+if (inputFecha) {
+    inputFecha.addEventListener('input', function () {
+    abrirModal();
+    });
+}
+var inputAnio9 = document.getElementById('inputAnio9');
+inputAnio9.addEventListener('input', function () {
+    validarAnio(inputAnio9);
+});
+var inputAnio15 = document.getElementById('inputAnio15');
+inputAnio15.addEventListener('input', function () {
+    validarAnio(inputAnio15);
+});
+var inputAnio18 = document.getElementById('inputAnio18');
+inputAnio18.addEventListener('input', function () {
+    validarAnio(inputAnio18);
+});
+var inputAnio24 = document.getElementById('inputAnio24');
+inputAnio24.addEventListener('input', function () {
+    validarAnio(inputAnio24);
+});
 botonConsulta3.addEventListener("click", function (e) {
     e.preventDefault(); // Evita el envío del formulario por defecto
     getConsulta3();
 });
-let inputFecha = document.getElementById('input-fecha');
 inputFecha.addEventListener('input', function () {
     // Obtén el valor del campo de fecha
     getConsulta6();

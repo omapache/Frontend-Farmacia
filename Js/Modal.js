@@ -11,43 +11,7 @@ if (botonCerrarModal) {
 }
 
 // Obtén el elemento select por su ID
-var select = document.getElementById('dropdownProveedor');
 
-if (select) {
-    select.addEventListener('change', function () {
-        abrirModal();
-    });
-}
-var selectm = document.getElementById('dropdownMedicamento');
-
-if (selectm) {
-    selectm.addEventListener('change', function () {
-        abrirModal();
-    });
-}
-let inputFecha = document.getElementById('input-fecha');
-
-if (inputFecha) {
-    inputFecha.addEventListener('input', function () {
-    abrirModal();
-    });
-}
-var inputAnio9 = document.getElementById('inputAnio9');
-inputAnio9.addEventListener('input', function () {
-    validarAnio(inputAnio9);
-});
-var inputAnio15 = document.getElementById('inputAnio15');
-inputAnio15.addEventListener('input', function () {
-    validarAnio(inputAnio15);
-});
-var inputAnio18 = document.getElementById('inputAnio18');
-inputAnio18.addEventListener('input', function () {
-    validarAnio(inputAnio18);
-});
-var inputAnio24 = document.getElementById('inputAnio24');
-inputAnio24.addEventListener('input', function () {
-    validarAnio(inputAnio24);
-});
 function validarAnio(inputAnio) {
     var anio = inputAnio.value;
     if (anio.length === 4 && !isNaN(anio)) {
@@ -71,7 +35,7 @@ function cerrarModal() {
     }
 }
 
-function abrirModal() {
+export function abrirModal() {
     // Obtiene el elemento modal por su id
     var modal = document.getElementById('staticBackdrop');
     // Abre el modal
