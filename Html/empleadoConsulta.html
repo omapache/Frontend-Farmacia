@@ -53,77 +53,42 @@
 		<main>
 			<a class="home" href="homeEmpleado.html"><h1 class="title">Consultas relacionadas con empleados</h1></a>
 			<div class="info-data">
-				<!-- Primer boton -->
-                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                    <b>Consulta número: </b>
-                    <p>Esta consulta se basa en: </p>
+				<!-- Veinteavo boton -->
+                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                    id="botonConsulta20">
+                    <b>Consulta número: 20 </b>
+                    <p>Empleados que hayan hecho más de 5 ventas en total.</p>
                 </button>
-                
-                
-                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                <!-- Veintitresavo boton -->
+                <div class="btn btn-secondary" id="botonConsulta23">
+                    <div>
+                        <b>Consulta número: 23 </b>
+                        <p>Empleados que no han realizado ninguna venta en:</p>
+                        <div>
+                            <input type="text" class="form-control" id="inputAnio23" placeholder="Año (YYYY)" maxlength="4">
                         </div>
-                        <div class="modal-body">
-                        ...
-                        </div>
-                        <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        </div>
-                    </div>
                     </div>
                 </div>
 
-                <!-- Segundo boton -->
-                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">
-                    <b>Consulta número: </b>
-                    <p>Esta consulta se basa en: </p>
-                </button>
-                
-                <!-- Modal -->
-                <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                     <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <div class="modal-title fs-5 mx-auto" id="TituloResultadoConsultaInventario">
+                                </div>
+                            </div>
+                            <div class="modal-body" id="resultadoConsultaInventario">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                                    id="CerrarModal">Close</button>
+                            </div>
                         </div>
-                        <div class="modal-body">
-                        ...holap
-                        </div>
-                        <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        </div>
-                    </div>
                     </div>
                 </div>
 
-                <!-- Tercer boton -->
-                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">
-                    <b>Consulta número: </b>
-                    <p>Esta consulta se basa en: </p>
-                </button>
-                
-                <!-- Modal -->
-                <div class="modal fade" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                        ...chaito
-                        </div>
-                        <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                    </div>
-                </div>
 			</div>
 		</main>
 		<!-- MAIN -->

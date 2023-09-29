@@ -25,14 +25,21 @@ botonConsulta8.addEventListener("click", function (e) {
     getConsulta8();
 });
 
-async function getConsulta2() {
-    console.log("entrooooooo");
-    const config = {
-        method: 'GET',
-        headers: headers,
-        body: JSON.stringify()
-    };
+const botonConsulta14 = document.getElementById('botonConsulta14');
 
+botonConsulta14.addEventListener("click", function (e) {
+    e.preventDefault();
+    getConsulta14();
+});
+
+const botonConsulta17 = document.getElementById('botonConsulta17');
+
+botonConsulta17.addEventListener("click", function (e) {
+    e.preventDefault();
+    getConsulta17();
+});
+
+async function getConsulta2() {
     try {
         const response = await (await fetch(`${URL}${urlProducto}/consulta2`)).json();
         console.log(response);
@@ -102,8 +109,6 @@ async function getConsulta5() {
 }
 
 async function getConsulta8() {
-    console.log("entrooooooo");
-
     try {
         const response = await fetch(`${URL}${urlMovInventario}/consulta8/totalDinero`);
 
@@ -135,3 +140,67 @@ async function getConsulta8() {
     }
 }
 
+async function getConsulta14() {
+    try {
+        const response = await fetch(`${URL}${urlProducto}/consulta14/totalVendidos`);
+
+        const textContent = await response.text();
+        console.log(textContent);
+
+        let modalTitle = document.getElementById("TituloResultadoConsultaInventario");
+        modalTitle.innerHTML = '';
+        let h1 = document.createElement("h4");
+        h1.innerHTML = "Consulta 14";
+        modalTitle.appendChild(h1);
+
+        let modalBody = document.getElementById("resultadoConsultaInventario");
+        modalBody.innerHTML = '';
+
+        let div = document.createElement("div");
+        div.setAttribute("id", "IdBorrar");
+        div.setAttribute("class", "col col-12 justify-content-center align-items-center");
+        div.innerHTML = `
+        <div id="responseTextId" class="card mt-3" style="width: auto-rem;">
+            <div class="card-body">
+                <h5 class="card-title text-center"><b>Cantidad total: </b>${textContent}</h5>
+            </div>
+        </div>`;
+        
+        modalBody.appendChild(div);
+    } catch (error) {
+        console.error("Error de red: ", error);
+    }
+}
+
+async function getConsulta17() {
+    try {
+        const response = await (await fetch(`${URL}${urlProducto}/consulta17/promedio`)).json();
+        console.log(response);
+
+        if (response) {
+            let modalTitle = document.getElementById("TituloResultadoConsultaInventario");
+            let h1 = document.createElement("h4");
+            h1.innerHTML = "Consulta 17";
+            modalTitle.appendChild(h1);
+            let modalBody = document.getElementById("resultadoConsultaInventario");
+            for(const element of response){
+                let div = document.createElement("div");
+                div.setAttribute("id",`${"IdBorrar"}`);
+                div.setAttribute("class","col col-12 justify-content-center align-items-center");
+                div.innerHTML = `
+                <div id="${element.id}" class="card mt-3" style="width: auto-rem;">
+                    <div class="card-body">
+                        <h5 class="card-title text-center"><b>Id de la venta: </b>${element.movimientoInventarioId}</h5>
+                        <p class="card-text"><b>Promedio de medicamentos: </b>${element.promedioMedicamentos}</p>
+                    </div>
+                </div>`
+            modalBody.appendChild(div)
+            }
+        console.log(response);
+        } else {
+            console.error("ta vacio");
+        }
+    } catch (error) {
+        console.error("Error de red: ", error);
+    }
+}
