@@ -61,7 +61,7 @@
                 <ul class="profile-link">
                     <li><a href="#"><i class='bx bxs-user-circle icon'></i> Perfil</a></li>
                     <li><a href="#"><i class='bx bxs-cog'></i> Configuración</a></li>
-                    <li><a href="#"><i class='bx bxs-log-out-circle'></i> Cerrar sesión</a></li>
+                    <li><a href="login.html"><i class='bx bxs-log-out-circle'></i> Cerrar sesión</a></li>
                 </ul>
             </div>
         </nav>
@@ -104,7 +104,7 @@
                     <div>
                         <b>Consulta número: 9 </b>
                         <p>Medicamentos que no han sido vendidos antes del</p>
-                        <input type="text"  class="form-control" id="inputAnio" placeholder="Año (YYYY)" maxlength="4" >
+                        <input type="text" class="form-control" id="inputAnio9" placeholder="Año (YYYY)" maxlength="4">
 
                     </div>
                 </div>
@@ -117,9 +117,30 @@
                             <select class="form-select" aria-label="Default select example" id="dropdownMedicamento">
                             </select>
                         </div>
-
                     </div>
                 </div>
+
+                <!-- quinceavo boton -->
+                <div class="btn btn-secondary" id="botonConsulta15">
+                    <div>
+                        <b>Consulta número: 15 </b>
+                        <p> Obtener el medicamento menos vendido en:</p>
+                        <div>
+                            <input type="text" class="form-control" id="inputAnio15" placeholder="Año (YYYY)" maxlength="4">
+                        </div>
+                    </div>
+                </div>
+                <!-- diezyochoavo boton -->
+                <div class="btn btn-secondary" id="botonConsulta18">
+                    <div>
+                        <b>Consulta número: 18 </b>
+                        <p> Obtener el medicamento menos vendido en:</p>
+                        <div>
+                            <input type="text" class="form-control" id="inputAnio18" placeholder="Año (YYYY)" maxlength="4">
+                        </div>
+                    </div>
+                </div>
+
                 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
                     tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                     <div class="modal-dialog">
@@ -138,7 +159,6 @@
                     </div>
                 </div>
 
-            </div>
         </main>
         <!-- MAIN -->
     </section>

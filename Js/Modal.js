@@ -32,12 +32,19 @@ if (inputFecha) {
     abrirModal();
     });
 }
-var inputAnio = document.getElementById('inputAnio');
-inputAnio.addEventListener('input', function () {
-    validarAnio();
+var inputAnio9 = document.getElementById('inputAnio9');
+inputAnio9.addEventListener('input', function () {
+    validarAnio(inputAnio9);
 });
-
-function validarAnio() {
+var inputAnio15 = document.getElementById('inputAnio15');
+inputAnio15.addEventListener('input', function () {
+    validarAnio(inputAnio15);
+});
+var inputAnio18 = document.getElementById('inputAnio18');
+inputAnio18.addEventListener('input', function () {
+    validarAnio(inputAnio18);
+});
+function validarAnio(inputAnio) {
     var anio = inputAnio.value;
     if (anio.length === 4 && !isNaN(anio)) {
         abrirModal();
@@ -99,13 +106,13 @@ function cargarMedicamentos() {
             var select = document.getElementById('dropdownMedicamento');
             select.innerHTML = '';
             var optionDefault = document.createElement('option');
-            optionDefault.textContent = 'Seleccione un proveedor';
+            optionDefault.textContent = 'Seleccione un Medicamento';
             select.appendChild(optionDefault);
             Medicamentos.forEach(proveedor => {
                 var option = document.createElement('option');
                 option.value = proveedor.id; 
                 option.textContent = proveedor.nombre; 
-                select.appendChild(option);
+                select.appendChild(option);0
             });
         })
         .catch(error => {
