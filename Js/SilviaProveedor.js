@@ -12,8 +12,6 @@ botonConsulta11.addEventListener("click", function (e) {
 });
 
 async function getConsulta11() {
-    console.log("entrooooooo");
-
     try {
         const response = await (await fetch(`${URL}${urlProducto}/consulta11/medicamentosProveedor`)).json();
         console.log(response);
