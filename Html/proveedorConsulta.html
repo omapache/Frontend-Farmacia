@@ -7,7 +7,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 	<link rel="stylesheet" href="../Style/style.css">
 	<script src="../js/home.js" async></script>
-	<script src="../js/app.js" defer type="module"></script>
     <link rel="shortcut icon" href="../Image/hospital.svg">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 	<title>Farmacia Campus</title>
@@ -53,84 +52,41 @@
 		<main>
 			<a class="home" href="homeEmpleado.html"><h1 class="title">Consultas relacionadas con proveedores</h1></a>
 			<div class="info-data">
-				<!-- Primer boton -->
-                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                    <b>Consulta número: 1 </b>
-                    <p>todos los medicamentos con menos de 50 unidades en stock</p>
-                </button>
-                
-                
-                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="TituloResultadoConsulta">
-
-                        </h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body" id="resultadoConsulta">
-                        
-                        </div>
-                        <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-
-                <!-- Segundo boton -->
-                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">
-                    <b>Consulta número: </b>
-                    <p>Esta consulta se basa en: </p>
-                </button>
-                
-                <!-- Modal -->
-                <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                        ...holap
-                        </div>
-                        <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-
-                <!-- Tercer boton -->
-                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">
-                    <b>Consulta número: </b>
-                    <p>Esta consulta se basa en: </p>
-                </button>
-                
-                <!-- Modal -->
-                <div class="modal fade" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                        ...chaito
-                        </div>
-                        <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                    </div>
-                </div>
+                <!-- Onceavo boton 
+                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                    id="botonConsulta11">
+                    <b>Consulta número: 11 </b>
+                    <p>Número de medicamentos por proveedor.</p>
+                </button> -->
 			</div>
+
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <div class="modal-title fs-5 mx-auto" id="TituloResultadoConsultaInventario">
+                                </div>
+                            </div>
+                            <div class="modal-body" id="resultadoConsultaInventario">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                                    id="CerrarModal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
 		</main>
 		<!-- MAIN -->
 	</section>
 	<!-- NAVBAR -->
 </body>
+<script src="../js/Silvia.js" type="module" defer></script>
+<script src="../js/Andres.js" type="module" defer></script>
+<script src="../js/Modal.js" type="module" defer></script>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </html>

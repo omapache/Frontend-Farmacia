@@ -626,7 +626,7 @@ main .btn-send:hover {
 #input-fecha {
     background-color: #6c757d; /* Cambia el color de fondo */
     color: white; /* Cambia el color del texto */
-}#inputAnio {
+}#inputAnio9,#inputAnio15,#inputAnio18 {
     background-color: #6c757d; /* Cambia el color de fondo */
     color: white; /* Cambia el color del texto */
 }
