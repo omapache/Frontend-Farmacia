@@ -618,19 +618,19 @@ main .btn-send:hover {
 	}
 }
 
-/* Estilos para el contenido del modal */
-#miModalContent {
-    background-color: white;
-    width: 50%;
-    margin: 100px auto;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+/* CSS personalizado para el dropdown */
+#dropdownProveedor {
+    background-color: #6c757d; /* Cambia el color de fondo */
+    color: white; /* Cambia el color del texto */
 }
-
-/* Estilos para el botón de cierre del modal */
-#miModalFooter .btn-secondary {
-    float: right;
-    cursor: pointer;
+#input-fecha {
+    background-color: #6c757d; /* Cambia el color de fondo */
+    color: white; /* Cambia el color del texto */
+}#inputAnio {
+    background-color: #6c757d; /* Cambia el color de fondo */
+    color: white; /* Cambia el color del texto */
 }
-
+#dropdownMedicamento {
+    background-color: #6c757d; /* Cambia el color de fondo */
+    color: white; /* Cambia el color del texto */
+}
