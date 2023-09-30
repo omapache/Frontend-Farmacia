@@ -1,5 +1,9 @@
-import {abrirModal} from "./Modal.js"
-
+import {abrirModal, validarAnio, cargarProveedores, cargarMedicamentos} from "./Modal.js"
+document.addEventListener('DOMContentLoaded', function() {
+    cargarProveedores(select);
+    cargarMedicamentos(selectMedicamento5);
+    cargarMedicamentos(selectMedicamento12);
+});
 const URL = "http://localhost:5115/api/farmacia/";
 const urlInventario = "inventarioMedicamento";
 const urlMovimiento = "MovimientoInventario";
@@ -17,23 +21,42 @@ if (select) {
         abrirModal();
     });
 }
-var selectm = document.getElementById('dropdownMedicamento');
+var selectm = document.querySelectorAll('#dropdownMedicamento');
+var selectMedicamento5 = document.getElementById('dropdownMedicamento5');
+var selectMedicamento12 = document.getElementById('dropdownMedicamento12');
 
-if (selectm) {
-    selectm.addEventListener('change', function () {
+if (selectMedicamento5) {
+    selectMedicamento5.addEventListener('change', function () {
         abrirModal();
     });
 }
+if (selectMedicamento12) {
+    selectMedicamento12.addEventListener('change', function () {
+        abrirModal();
+    });
+}
+
 let inputFecha = document.getElementById('input-fecha');
 
 if (inputFecha) {
     inputFecha.addEventListener('input', function () {
     abrirModal();
+    
     });
 }
+let botonConsulta12 = document.getElementById('botonConsulta12');
+
+botonConsulta3.addEventListener("click", function (e) {
+    e.preventDefault(); // Evita el envío del formulario por defecto
+    getConsulta3();
+});
 var inputAnio9 = document.getElementById('inputAnio9');
 inputAnio9.addEventListener('input', function () {
     validarAnio(inputAnio9);
+});
+botonConsulta12.addEventListener("click", function (e) {
+    e.preventDefault(); // Evita el envío del formulario por defecto
+    getConsulta12();
 });
 var inputAnio15 = document.getElementById('inputAnio15');
 inputAnio15.addEventListener('input', function () {
@@ -47,49 +70,40 @@ var inputAnio24 = document.getElementById('inputAnio24');
 inputAnio24.addEventListener('input', function () {
     validarAnio(inputAnio24);
 });
-botonConsulta3.addEventListener("click", function (e) {
-    e.preventDefault(); // Evita el envío del formulario por defecto
-    getConsulta3();
-});
+
 inputFecha.addEventListener('input', function () {
     // Obtén el valor del campo de fecha
     getConsulta6();
 });
 
-var inputAnio9 = document.getElementById('inputAnio9');
+
 inputAnio9.addEventListener('input', function () {
-    validarAnio(inputAnio9, getConsulta9);
-});
-
-const botonConsulta12 = document.getElementById('botonConsulta12');
-
-botonConsulta12.addEventListener("click", function (e) {
-    e.preventDefault(); // Evita el envío del formulario por defecto
-    getConsulta12();
+    validarAnioConsulta(inputAnio9, getConsulta9);
 });
 var inputAnio15 = document.getElementById('inputAnio15');
 inputAnio15.addEventListener('input', function () {
-    validarAnio(inputAnio15, getConsulta15);
+    validarAnioConsulta(inputAnio15, getConsulta15);
 });
 
 var inputAnio18 = document.getElementById('inputAnio18');
 inputAnio18.addEventListener('input', function () {
-    validarAnio(inputAnio18, getConsulta18);
+    validarAnioConsulta(inputAnio18, getConsulta18);
 });
 botonConsulta21.addEventListener("click", function (e) {
     getConsulta21();
 });
 var inputAnio24 = document.getElementById('inputAnio24');
 inputAnio24.addEventListener('input', function () {
-    validarAnio(inputAnio24, getConsulta24);
+    validarAnioConsulta(inputAnio24, getConsulta24);
 });
-function validarAnio(inputAnio,getConsulta) {
+function validarAnioConsulta(inputAnio,getConsulta) {
     var anio = inputAnio.value;
     if (anio.length === 4 && !isNaN(anio)) {
         var anioElegido = anio;
         getConsulta(anioElegido);
     } 
 }
+
 async function getConsulta3() {
     let proveedores = document.getElementById('dropdownProveedor');
     let proveedorSeleccionado = proveedores.selectedIndex;
@@ -190,7 +204,8 @@ async function getConsulta9(anioElegido) {
     }
 }
 async function getConsulta12() {
-    let Medicamentos = document.getElementById('dropdownMedicamento');
+    console.log("getConsulta12() se está ejecutando.");
+    let Medicamentos = document.getElementById('dropdownMedicamento12');
     let MedicamentosSeleccionado = Medicamentos.selectedIndex;
     let MedicamentosSeleccionadoNombre = Medicamentos.options[MedicamentosSeleccionado].text;
     try {

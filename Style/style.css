@@ -630,7 +630,7 @@ main .btn-send:hover {
     background-color: #6c757d; /* Cambia el color de fondo */
     color: white; /* Cambia el color del texto */
 }
-#dropdownMedicamento {
+#dropdownMedicamento5,#dropdownMedicamento12 {
     background-color: #6c757d; /* Cambia el color de fondo */
     color: white; /* Cambia el color del texto */
 }

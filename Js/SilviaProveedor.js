@@ -1,3 +1,4 @@
+import {abrirModal, validarAnio, cargarProveedores, cargarMedicamentos} from "./Modal.js"
 const URL = "http://localhost:5115/api/farmacia/";
 const urlProducto = "Producto";
 const urlInventario = "InventarioMedicamento";
