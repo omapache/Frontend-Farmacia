@@ -7,6 +7,18 @@ const botonConsulta1 = document.getElementById('botonConsulta1');
 const botonConsulta10 = document.getElementById('botonConsulta10');
 const botonConsulta13 = document.getElementById('botonConsulta13');
 const botonConsulta19 = document.getElementById('botonConsulta19');
+const botonConsulta25 = document.getElementById('botonConsulta25');
+const botonConsulta28 = document.getElementById('botonConsulta28');
+
+botonConsulta28.addEventListener("click", function (e) {
+    e.preventDefault(); // Evita el envío del formulario por defecto
+    getConsulta28();
+});
+
+botonConsulta25.addEventListener("click", function (e) {
+    e.preventDefault(); // Evita el envío del formulario por defecto
+    getConsulta25();
+});
 
 botonConsulta1.addEventListener("click", function (e) {
     e.preventDefault(); // Evita el envío del formulario por defecto
@@ -200,6 +212,116 @@ async function getConsulta19() {
                             <p class="card-text"><b>Stock: </b>${element.stock}</p>
                             <p class="card-text"><b>Fecha de expiracion: </b>${element.fechaExpiracion}</p>
                             <p class="card-text"><b>Descripción: </b>${element.descripcion}</p>
+                        </div>
+                    </div>`
+                    modalBody.appendChild(div)
+                }
+                console.log(response);
+            } else {
+                let modalTitle = document.getElementById("TituloResultadoConsulta");
+                let h1 = document.createElement("h4");
+                h1.innerHTML = "No Hay Registros ";
+                modalTitle.appendChild(h1);
+            }
+        }else {
+            let modalTitle = document.getElementById("TituloResultadoConsulta");
+            let h1 = document.createElement("h4");
+            h1.innerHTML = "Error en la cantidad de caracteres "+typeof(parseInt(anio));
+            modalTitle.appendChild(h1);
+        }
+    } catch (error) {
+        console.error("Error de red: ", error);
+    }
+}
+
+
+async function getConsulta25() {
+
+    console.log("entrooooooo");
+    /* const config = {
+        method: 'GET',
+        headers: headers,
+        body: JSON.stringify()
+    }; */
+    let anio = document.getElementById('AñoConsulta25').value;
+    let Medicamento = document.getElementById('Medicamento25').value;
+
+    try {
+        if (anio.length == 4  ) {
+
+
+            const response = await (await fetch(`${URL}${urlMovimientoInventario}/consulta25/${anio}/${Medicamento}`)).json();
+            console.log(response);
+
+            if (response.length > 0) {
+                let modalTitle = document.getElementById("TituloResultadoConsulta");
+                let h1 = document.createElement("h4");
+                h1.innerHTML = "Consulta 25";
+                modalTitle.appendChild(h1);
+                let modalBody = document.getElementById("resultadoConsulta");
+                for (const element of response) {
+                    let div = document.createElement("div");
+                    div.setAttribute("id", `${"IdBorrar"}`);
+                    div.setAttribute("class", "col col-12 justify-content-center align-items-center");
+                    div.innerHTML = `
+                    <div id="${element.id}" class="card mt-3" style="width: auto-rem;">
+                        <div class="card-body">
+                            <h5 class="card-title text-center"><b>Paciente: </b>${element.nombre}</h5>
+                            <p class="card-text"><b>Documento: </b>${element.numeroDocumento}</p>
+                        </div>
+                    </div>`
+                    modalBody.appendChild(div)
+                }
+                console.log(response);
+            } else {
+                let modalTitle = document.getElementById("TituloResultadoConsulta");
+                let h1 = document.createElement("h4");
+                h1.innerHTML = "No Hay Registros ";
+                modalTitle.appendChild(h1);
+            }
+        }else {
+            let modalTitle = document.getElementById("TituloResultadoConsulta");
+            let h1 = document.createElement("h4");
+            h1.innerHTML = "Error en la cantidad de caracteres "+typeof(parseInt(anio));
+            modalTitle.appendChild(h1);
+        }
+    } catch (error) {
+        console.error("Error de red: ", error);
+    }
+}
+
+async function getConsulta28() {
+
+    console.log("entrooooooo");
+    const config = {
+        method: 'GET',
+        headers: headers,
+        body: JSON.stringify()
+    };
+
+    try {
+        let anio = document.getElementById('AñoConsulta28').value;
+        if (anio.length == 4  ) {
+
+
+            const response = await (await fetch(`${URL}${urlMovimientoInventario}/consulta28/${anio}`)).json();
+            console.log(response);
+
+            if (response.length > 0) {
+                let modalTitle = document.getElementById("TituloResultadoConsulta");
+                let h1 = document.createElement("h4");
+                h1.innerHTML = "Consulta 28";
+                modalTitle.appendChild(h1);
+                let modalBody = document.getElementById("resultadoConsulta");
+                for (const element of response) {
+                    let div = document.createElement("div");
+                    div.setAttribute("id", `${"IdBorrar"}`);
+                    div.setAttribute("class", "col col-12 justify-content-center align-items-center");
+                    div.innerHTML = `
+                    <div id="${element.id}" class="card mt-3" style="width: auto-rem;">
+                        <div class="card-body">
+                            <h5 class="card-title text-center"><b>Proveedor: </b>${element.nombre}</h5>
+                            <p class="card-text"><b>Documento: </b>${element.numeroDocumento}</p>
                         </div>
                     </div>`
                     modalBody.appendChild(div)
