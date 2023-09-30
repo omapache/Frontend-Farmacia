@@ -85,7 +85,7 @@ async function getConsulta2() {
 async function getConsulta5() {
     let modalTitle = document.getElementById("TituloResultadoConsultaInventario");
     let modalBody = document.getElementById("resultadoConsultaInventario");
-    let Medicamentos = document.getElementById('dropdownMedicamento');
+    let Medicamentos = document.getElementById('dropdownMedicamento5');
     let MedicamentosSeleccionado = Medicamentos.selectedIndex;
     let MedicamentosSeleccionadoNombre = Medicamentos.options[MedicamentosSeleccionado].text;
 

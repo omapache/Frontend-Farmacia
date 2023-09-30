@@ -1,8 +1,5 @@
 let botonCerrarModal = document.getElementById('CerrarModal');
-document.addEventListener('DOMContentLoaded', function() {
-    cargarProveedores();
-    cargarMedicamentos();
-});
+
 
 if (botonCerrarModal) {
     botonCerrarModal.addEventListener('click', function () {
@@ -12,7 +9,7 @@ if (botonCerrarModal) {
 
 // Obtén el elemento select por su ID
 
-function validarAnio(inputAnio) {
+export function validarAnio(inputAnio) {
     var anio = inputAnio.value;
     if (anio.length === 4 && !isNaN(anio)) {
         abrirModal();
@@ -45,12 +42,11 @@ export function abrirModal() {
     }
 }
 
-function cargarProveedores() {
+export function cargarProveedores(select) {
     fetch('http://localhost:5115/api/farmacia/persona')
         .then(response => response.json()) // Parsear la respuesta JSON
         .then(data => {
             var proveedores = data.filter(proveedor => proveedor.rol.nombre == "Proveedor");
-            var select = document.getElementById('dropdownProveedor');
             select.innerHTML = '';
             var optionDefault = document.createElement('option');
             optionDefault.textContent = 'Seleccione un proveedor';
@@ -72,17 +68,17 @@ function cargarMedicamentos(selects) {
         .then(data => {
             var Medicamentos = data;
 
-            selects.forEach(select => {
-                select.innerHTML = '';
-                var optionDefault = document.createElement('option');
-                optionDefault.textContent = 'Seleccione un medicamento';
-                select.appendChild(optionDefault);
-                Medicamentos.forEach(medicamento => {
-                    var option = document.createElement('option');
-                    option.value = medicamento.id; 
-                    option.textContent = medicamento.nombre; 
-                    select.appendChild(option);
-                });
+            select.innerHTML = ''; // Limpiar opciones existentes en el select
+
+            var optionDefault = document.createElement('option');
+            optionDefault.textContent = 'Seleccione un medicamento';
+            select.appendChild(optionDefault);
+
+            Medicamentos.forEach(medicamento => {
+                var option = document.createElement('option');
+                option.value = medicamento.id; 
+                option.textContent = medicamento.nombre; 
+                select.appendChild(option);
             });
         })
         .catch(error => {
