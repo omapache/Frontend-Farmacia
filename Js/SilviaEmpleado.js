@@ -1,3 +1,5 @@
+import {validarAnio} from "./Modal.js"
+
 const URL = "http://localhost:5115/api/farmacia/";
 const urlProducto = "Producto";
 const urlInventario = "InventarioMedicamento";
@@ -11,12 +13,33 @@ botonConsulta20.addEventListener("click", function (e) {
     getConsulta20();
 });
 
-const botonConsulta23 = document.getElementById('botonConsulta23');
-
-botonConsulta23.addEventListener("click", function (e) {
-    e.preventDefault();
-    getConsulta23();
+var inputAnio23 = document.getElementById('inputAnio23');
+inputAnio23.addEventListener('input', function () {
+    validarAnio(inputAnio23);
 });
+
+var inputAnio23 = document.getElementById('inputAnio23');
+inputAnio23.addEventListener('input', function () {
+    validarAnioConsulta(inputAnio23, getConsulta23);
+});
+
+var inputAnio32 = document.getElementById('inputAnio32');
+inputAnio32.addEventListener('input', function () {
+    validarAnio(inputAnio32);
+});
+
+var inputAnio32 = document.getElementById('inputAnio32');
+inputAnio32.addEventListener('input', function () {
+    validarAnioConsulta(inputAnio32, getConsulta32);
+});
+
+function validarAnioConsulta(inputAnio,getConsulta) {
+    var anio = inputAnio.value;
+    if (anio.length === 4 && !isNaN(anio)) {
+        var anioElegido = anio;
+        getConsulta(anioElegido);
+    } 
+}
 
 async function getConsulta20() {
     try {
@@ -103,5 +126,47 @@ async function getConsulta23(anioElegido) {
         }
     } catch (error) {
         console.error("Error de red: ", error);
+    }
+}
+
+async function getConsulta32(anioElegido) {
+    try {
+        const response = await fetch(`${URL}${urlPersona}/consulta32/empleadosMaxMedi/${anioElegido}`);
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const data = await response.json(); // Extract the JSON from the response
+
+        let modalTitle = document.getElementById("TituloResultadoConsultaInventario");
+        let modalBody = document.getElementById("resultadoConsultaInventario");
+        modalTitle.innerHTML = '';
+        let h4 = document.createElement("h4");
+        h4.setAttribute("class", "text-center");
+        h4.innerHTML = `Consulta 32 <br>Fecha: ${anioElegido}`;
+        modalTitle.appendChild(h4);
+        modalBody.innerHTML = '';
+
+        if (Array.isArray(data)) { 
+            for (const element of data) {
+                let div = document.createElement("div");
+                div.setAttribute("id", `${"IdBorrar"}`);
+                div.setAttribute("class", "col col-12 justify-content-center align-items-center");
+                div.innerHTML = `
+                <div id="${element.id}" class="card mt-3" style="width: auto-rem;">
+                    <div class="card-body">
+                        <h5 class="card-title text-center"><b>Id del empleado: </b>${element.empleadoId}</h5>
+                        <p class="card-text"><b>Cantidad de medicamentos diferentes: </b>${element.medicamentosDistintos}</p>
+                    </div>
+                </div>`;
+                modalBody.appendChild(div);
+            }
+        } else {
+            console.error("El JSON recibido no es un arreglo válido.");
+        }
+
+    } catch (error) {
+        console.error("Error: ", error);
     }
 }
