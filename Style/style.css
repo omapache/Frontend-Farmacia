@@ -623,13 +623,21 @@ main .btn-send:hover {
     background-color: #6c757d; /* Cambia el color de fondo */
     color: white; /* Cambia el color del texto */
 }
+
 #input-fecha {
     background-color: #6c757d; /* Cambia el color de fondo */
     color: white; /* Cambia el color del texto */
-}#inputAnio9,#inputAnio15,#inputAnio18,#inputAnio24, #inputAnio23, #inputAnio32, #inputAnio26, #inputMes26 {
+}
+
+#inputAnio9,#inputAnio15,#inputAnio18,#inputAnio24, #inputAnio23, #inputAnio32, #inputAnio26, #inputMes26 {
     background-color: #6c757d; /* Cambia el color de fondo */
     color: white; /* Cambia el color del texto */
 }
+
+#inputMes26 {
+	margin-top: 2%;
+}
+
 #dropdownMedicamento5,#dropdownMedicamento12 {
     background-color: #6c757d; /* Cambia el color de fondo */
     color: white; /* Cambia el color del texto */
