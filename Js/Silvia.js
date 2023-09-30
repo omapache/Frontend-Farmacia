@@ -1,6 +1,6 @@
 const URL = "http://localhost:5115/api/farmacia/";
 const urlProducto = "Producto";
-const urlInventario = "InventarioMedicamento";
+const urlInventario = "inventarioMedicamento";
 const urlMovInventario = "MovimientoInventario";
 const headers = new Headers({ 'Content-Type': 'application/json' });
 
@@ -38,6 +38,14 @@ botonConsulta17.addEventListener("click", function (e) {
     e.preventDefault();
     getConsulta17();
 });
+
+const botonConsulta38 = document.getElementById('botonConsulta38');
+
+botonConsulta38.addEventListener("click", function (e) {
+    e.preventDefault();
+    getConsulta38();
+});
+
 
 async function getConsulta2() {
     try {
@@ -205,3 +213,38 @@ async function getConsulta17() {
     }
 }
 
+async function getConsulta38() {
+    try {
+        const response = await (await fetch(`${URL}${urlInventario}/consulta38/medicamentos`)).json();
+        console.log(response);
+
+        if (response) {
+            let modalTitle = document.getElementById("TituloResultadoConsultaInventario");
+            let h1 = document.createElement("h4");
+            h1.innerHTML = "Consulta 38";
+            modalTitle.appendChild(h1);
+            let modalBody = document.getElementById("resultadoConsultaInventario");
+            for(const element of response){
+                let div = document.createElement("div");
+                div.setAttribute("id",`${"IdBorrar"}`);
+                div.setAttribute("class","col col-12 justify-content-center align-items-center");
+                div.innerHTML = `
+                <div id="${element.id}" class="card mt-3" style="width: auto-rem;">
+                    <div class="card-body">
+                        <h5 class="card-title text-center"><b>Medicamento: </b>${element.nombreMedicamento}</h5>
+                        <p class="card-text"><b>Id del medicamento: </b>${element.id}</p>
+                        <p class="card-text"><b>Fecha de expiración: </b>${element.fechaExperiacion}</p>
+                        <p class="card-text"><b>Stock: </b>${element.stock}</p>
+                        <p class="card-text"><b>Precio: </b>${element.precio}</p>
+                    </div>
+                </div>`
+            modalBody.appendChild(div)
+            }
+        console.log(response);
+        } else {
+            console.error("ta vacio");
+        }
+    } catch (error) {
+        console.error("Error de red: ", error);
+    }
+}

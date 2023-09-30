@@ -10,13 +10,7 @@ botonConsulta1.addEventListener("click", function (e) {
 
 
 async function getConsulta1() {
-
     console.log("entrooooooo");
-    const config = {
-        method: 'GET',
-        headers: headers,
-        body: JSON.stringify()
-    };
 
     try {
         const response = await (await fetch(`${URL}${urlInventario}/consulta1`)).json();
