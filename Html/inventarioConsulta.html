@@ -73,6 +73,48 @@
                 <h1 class="title">Consultas relacionadas con el inventario</h1>
             </a>
             <div class="info-data">
+                
+                <!-- decimo boton  Obtener el medicamento más caro.-->
+                <button class="btn btn-secondary" id="botonConsulta10" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    <div>
+                        <b>Consulta número: 10 </b>
+                        <p>medicamento más caro.</p>
+
+                    </div>
+                </button>
+                <!-- Fin decimo boton -->
+                
+                <!-- Treceavo boton  Obtener el medicamento más caro.-->
+                <button class="btn btn-secondary" id="botonConsulta13" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    <div>
+                        <b>Consulta número: 13 </b>
+                        <p>Proveedores que no han vendido medicamentos en el último año.</p>
+
+                    </div>
+                </button>
+                <!-- Fin Treceavo boton -->
+
+                <!-- 19 boton  -->
+                <div type="" class="btn btn-secondary" >
+                    <b>Consulta número: 19 </b>
+                    <p>Obtener todos los medicamentos que expiren en 2024.</p>
+                    <div class="row">
+                        <div class="col-2"></div>
+                        <div class="col-8">
+                            <div class="input-group mb-3">
+                                <input type="number" class="form-control" placeholder="Ingrese el año" id="AñoConsulta19">
+                                <button class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                id="botonConsulta19"></button>
+                            </div>
+                        </div>
+                        <div class="col-2"></div>
+                    </div>
+                </div>
+                <!-- Fin Boton 19 -->
+
+
+
+
                 <!-- Primer boton -->
                 <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
                     id="botonConsulta1">
@@ -127,7 +169,7 @@
                     <p>Total de dinero recaudado por las ventas de medicamentos.</p>
                 </button>
 
-                <!-- noveno boton -->
+                <!-- noveno boton  -->
                 <div class="btn btn-secondary" id="botonConsulta9">
                     <div>
                         <b>Consulta número: 9 </b>
@@ -136,6 +178,8 @@
 
                     </div>
                 </div>
+
+                
 
                 <!-- doceavo boton -->
                 <div class="btn btn-secondary" id="botonConsulta12">
@@ -170,15 +214,17 @@
                     </div>
                 </div>
 
+                
+
                 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
                     tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <div class="modal-title fs-5 mx-auto" id="TituloResultadoConsultaInventario">
+                                <div class="modal-title fs-5 mx-auto" id="TituloResultadoConsulta">
                                 </div>
                             </div>
-                            <div class="modal-body" id="resultadoConsultaInventario">
+                            <div class="modal-body" id="resultadoConsulta">
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
