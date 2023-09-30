@@ -629,7 +629,7 @@ main .btn-send:hover {
     color: white; /* Cambia el color del texto */
 }
 
-#inputAnio9,#inputAnio15,#inputAnio18,#inputAnio24, #inputAnio23, #inputAnio32, #inputAnio26, #inputMes26 {
+#inputAnio9,#inputAnio15,#inputAnio18,#inputAnio24, #inputAnio35, #inputAnio23, #inputAnio32, #inputAnio26, #inputMes26 {
     background-color: #6c757d; /* Cambia el color de fondo */
     color: white; /* Cambia el color del texto */
 }
@@ -641,4 +641,8 @@ main .btn-send:hover {
 #dropdownMedicamento5,#dropdownMedicamento12 {
     background-color: #6c757d; /* Cambia el color de fondo */
     color: white; /* Cambia el color del texto */
+}
+
+.registros {
+	color: #4067a1;
 }
