@@ -1,3 +1,5 @@
+import {abrirModal} from "./Modal.js"
+
 const URL = "http://localhost:5115/api/farmacia/";
 const urlProducto = "Producto";
 const urlInventario = "inventarioMedicamento";
@@ -46,6 +48,30 @@ botonConsulta38.addEventListener("click", function (e) {
     getConsulta38();
 });
 
+var inputAnio26 = document.getElementById('inputAnio26');
+var inputMes26 = document.getElementById('inputMes26');
+
+inputAnio26.addEventListener('input', function () {
+    validarFecha(inputAnio26, inputMes26);
+});
+
+inputMes26.addEventListener('input', function () {
+    validarFecha(inputAnio26, inputMes26);
+});
+
+function validarFecha(inputAnio, inputMes) {
+    var anio = inputAnio.value;
+    var mes = inputMes.value;
+
+    if (
+        anio.length === 4 && !isNaN(anio) && 
+        mes.length >= 1 && mes.length <= 2 && !isNaN(mes) && 
+        mes >= 1 && mes <= 12
+    ) {
+        abrirModal();
+        getConsulta26(anio, mes);
+    } 
+}
 
 async function getConsulta2() {
     try {
@@ -246,5 +272,40 @@ async function getConsulta38() {
         }
     } catch (error) {
         console.error("Error de red: ", error);
+    }
+}
+
+async function getConsulta26(anioElegido, mesElegido) {
+    try {
+        const response = await fetch(`${URL}${urlProducto}/consulta26/medicamentosMes/${anioElegido}-${mesElegido}`);
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const data = await response.text();
+
+        let modalTitle = document.getElementById("TituloResultadoConsultaInventario");
+        let modalBody = document.getElementById("resultadoConsultaInventario");
+        modalTitle.innerHTML = '';
+        let h4 = document.createElement("h4");
+        h4.setAttribute("class", "text-center");
+        h4.innerHTML = `Consulta 26 <br>Fecha: ${anioElegido}-${mesElegido}`;
+        modalTitle.appendChild(h4);
+        modalBody.innerHTML = '';
+
+        let div = document.createElement("div");
+        div.setAttribute("id", `${"IdBorrar"}`);
+        div.setAttribute("class", "col col-12 justify-content-center align-items-center");
+        div.innerHTML = `
+        <div class="card mt-3" style="width: auto-rem;">
+            <div class="card-body">
+                <p class="card-text text-center">${data}</p>
+            </div>
+        </div>`;
+        modalBody.appendChild(div);
+
+    } catch (error) {
+        console.error("Error: ", error);
     }
 }
