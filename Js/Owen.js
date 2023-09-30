@@ -2,12 +2,13 @@ import {abrirModal, validarAnio, cargarProveedores, cargarMedicamentos} from "./
 document.addEventListener('DOMContentLoaded', function() {
     cargarProveedores(select);
     cargarMedicamentos(selectMedicamento5);
-    cargarMedicamentos(selectMedicamento12);
-});
+/*     cargarMedicamentos(selectMedicamento12);
+ */});
 const URL = "http://localhost:5115/api/farmacia/";
 const urlInventario = "inventarioMedicamento";
 const urlMovimiento = "MovimientoInventario";
 const urlDetalleMovimiento = "detallemovimiento";
+const urlPersona = "persona";
 const headers = new Headers({ 'Content-Type': 'application/json' });
 
 let modalTitle = document.getElementById("TituloResultadoConsultaInventario");
@@ -23,18 +24,18 @@ if (select) {
 }
 var selectm = document.querySelectorAll('#dropdownMedicamento');
 var selectMedicamento5 = document.getElementById('dropdownMedicamento5');
-var selectMedicamento12 = document.getElementById('dropdownMedicamento12');
-
+/* var selectMedicamento12 = document.getElementById('dropdownMedicamento12');
+ */
 if (selectMedicamento5) {
     selectMedicamento5.addEventListener('change', function () {
         abrirModal();
     });
 }
-if (selectMedicamento12) {
+/* if (selectMedicamento12) {
     selectMedicamento12.addEventListener('change', function () {
         abrirModal();
     });
-}
+} */
 
 let inputFecha = document.getElementById('input-fecha');
 
@@ -44,8 +45,8 @@ if (inputFecha) {
     
     });
 }
-let botonConsulta12 = document.getElementById('botonConsulta12');
-
+/* let botonConsulta12 = document.getElementById('botonConsulta12');
+ */
 botonConsulta3.addEventListener("click", function (e) {
     e.preventDefault(); // Evita el envío del formulario por defecto
     getConsulta3();
@@ -54,22 +55,42 @@ var inputAnio9 = document.getElementById('inputAnio9');
 inputAnio9.addEventListener('input', function () {
     validarAnio(inputAnio9);
 });
-botonConsulta12.addEventListener("click", function (e) {
+/* botonConsulta12.addEventListener("click", function (e) {
     e.preventDefault(); // Evita el envío del formulario por defecto
     getConsulta12();
-});
+}); */
 var inputAnio15 = document.getElementById('inputAnio15');
 inputAnio15.addEventListener('input', function () {
     validarAnio(inputAnio15);
 });
-var inputAnio18 = document.getElementById('inputAnio18');
+/* var inputAnio18 = document.getElementById('inputAnio18');
 inputAnio18.addEventListener('input', function () {
     validarAnio(inputAnio18);
-});
+}); */
 var inputAnio24 = document.getElementById('inputAnio24');
 inputAnio24.addEventListener('input', function () {
     validarAnio(inputAnio24);
 });
+/* var inputAnio27 = document.getElementById('inputAnio27');
+inputAnio27.addEventListener('input', function () {
+    validarAnio(inputAnio27);
+}); */
+/* const botonConsulta30 = document.getElementById('botonConsulta30');
+botonConsulta30.addEventListener("click", function (e) {
+    e.preventDefault(); // Evita el envío del formulario por defecto
+    getConsulta30();
+}); */
+/* const botonConsulta33 = document.getElementById('botonConsulta33');
+botonConsulta33.addEventListener("click", function (e) {
+    e.preventDefault(); // Evita el envío del formulario por defecto
+    getConsulta33();
+}); */
+const botonConsulta36 = document.getElementById('botonConsulta36');
+botonConsulta36.addEventListener("click", function (e) {
+    e.preventDefault(); // Evita el envío del formulario por defecto
+    getConsulta36();
+});
+
 
 inputFecha.addEventListener('input', function () {
     // Obtén el valor del campo de fecha
@@ -85,17 +106,21 @@ inputAnio15.addEventListener('input', function () {
     validarAnioConsulta(inputAnio15, getConsulta15);
 });
 
-var inputAnio18 = document.getElementById('inputAnio18');
+/* var inputAnio18 = document.getElementById('inputAnio18');
 inputAnio18.addEventListener('input', function () {
     validarAnioConsulta(inputAnio18, getConsulta18);
-});
-botonConsulta21.addEventListener("click", function (e) {
+}); */
+/* botonConsulta21.addEventListener("click", function (e) {
     getConsulta21();
-});
+}); */
 var inputAnio24 = document.getElementById('inputAnio24');
 inputAnio24.addEventListener('input', function () {
     validarAnioConsulta(inputAnio24, getConsulta24);
 });
+/* var inputAnio27 = document.getElementById('inputAnio27');
+inputAnio27.addEventListener('input', function () {
+    validarAnioConsulta(inputAnio27, getConsulta27);
+}); */
 function validarAnioConsulta(inputAnio,getConsulta) {
     var anio = inputAnio.value;
     if (anio.length === 4 && !isNaN(anio)) {
@@ -203,7 +228,7 @@ async function getConsulta9(anioElegido) {
         console.error("Error de red: ", error);
     }
 }
-async function getConsulta12() {
+/* async function getConsulta12() {
     console.log("getConsulta12() se está ejecutando.");
     let Medicamentos = document.getElementById('dropdownMedicamento12');
     let MedicamentosSeleccionado = Medicamentos.selectedIndex;
@@ -235,7 +260,7 @@ async function getConsulta12() {
     } catch (error) {
         console.error("Error de red: ", error);
     }
-}
+} */
 
 async function getConsulta15(anioElegido) {
     try {
@@ -291,7 +316,7 @@ async function getConsulta15(anioElegido) {
     }
 }
 
-async function getConsulta18(anioElegido) {
+/* async function getConsulta18(anioElegido) {
     try {
         const response = await (await fetch(`${URL}${urlMovimiento}/consulta18/${anioElegido}`)).json();
         if (response) {
@@ -320,8 +345,8 @@ async function getConsulta18(anioElegido) {
     } catch (error) {
         console.error("Error de red: ", error);
     }
-}
-async function getConsulta21() {
+} */
+/* async function getConsulta21() {
     try {
         const response = await (await fetch(`${URL}${urlInventario}/consulta21`)).json();
         console.log(response);
@@ -354,7 +379,7 @@ async function getConsulta21() {
         console.error("Error de red: ", error);
     }
 }
-
+ */
 async function getConsulta24(anioElegido) {
     try {
         const response = await fetch(`${URL}${urlDetalleMovimiento}/consulta24/${anioElegido}`);
@@ -362,7 +387,7 @@ async function getConsulta24(anioElegido) {
         modalTitle.innerHTML = '';
         let h4 = document.createElement("h4");
         h4.setAttribute("class", "text-center");
-        h4.innerHTML = `Consulta 21 <br>Fecha: ${anioElegido}`;
+        h4.innerHTML = `Consulta 24 <br>Fecha: ${anioElegido}`;
         modalTitle.appendChild(h4);
         modalBody.innerHTML = '';
 
@@ -403,6 +428,173 @@ async function getConsulta24(anioElegido) {
                         </div>
                     </div>`
                     modalBody.appendChild(div);
+        }
+    } catch (error) {
+        console.error("Error de red: ", error);
+    }
+}
+/* async function getConsulta27(anioElegido) {
+    try {
+        const response = await (await fetch(`${URL}${urlPersona}/consulta27/${anioElegido}`)).json();
+
+        // Verificar si la respuesta de la API coincide con el mensaje de no hay resultados
+        if (response == "No se encontraron empleados con menos de 5 ventas en 2023") {
+            modalTitle.innerHTML = '';
+            let h4 = document.createElement("h4");
+            h4.setAttribute("class", "text-center");
+            h4.innerHTML = `Consulta 27 <br>Fecha: ${anioElegido}`;
+            modalTitle.appendChild(h4);
+            modalBody.innerHTML = '';
+            let mensajeNoEmpleados = document.createElement("p");
+            mensajeNoEmpleados.setAttribute("class", "text-center");
+            mensajeNoEmpleados.textContent = "No se encontraron empleados con menos de 5 ventas en 2023";
+            modalBody.appendChild(mensajeNoEmpleados);
+        } else if (response && response.length > 0) {
+            // Hay resultados, mostrarlos en el modal
+            modalTitle.innerHTML = '';
+            let h4 = document.createElement("h4");
+            h4.setAttribute("class", "text-center");
+            h4.innerHTML = `Consulta 18 <br>Fecha: ${anioElegido}`;
+            modalTitle.appendChild(h4);
+            modalBody.innerHTML = '';
+            for (const element of response) {
+                let div = document.createElement("div");
+                div.setAttribute("id", `${"IdBorrar"}`);
+                div.setAttribute("class", "col col-12 justify-content-center align-items-center");
+                div.innerHTML = `
+                <div id="${element.id}" class="card mt-3" style="width: auto-rem;">
+                    <div class="card-body">
+                        <h5 class="card-title text-center"><b>Empleado: </b>${element.empleado}</h5>
+                        <p class="card-text text-center"><b>Cantidad de ventas: </b>${element.cantidadVentas}</p>
+                    </div>
+                </div>`;
+                modalBody.appendChild(div);
+            }
+        } else {
+            // Otro manejo de error si es necesario
+            console.error("La respuesta de la API no es válida.");
+        }
+    } catch (error) {
+        console.error("Error de red: ", error);
+    }
+} */
+/* async function getConsulta30() {
+    try {
+        const response = await (await fetch(`${URL}${urlPersona}/consulta30`)).json();
+        if (response) {
+            let modalTitle = document.getElementById("TituloResultadoConsultaInventario");
+            let h1 = document.createElement("h4");
+            h1.innerHTML = "Consulta 30";
+            modalTitle.appendChild(h1);
+            let modalBody = document.getElementById("resultadoConsultaInventario");
+            for(const element of response){
+                let div = document.createElement("div");
+                div.setAttribute("id",`${"IdBorrar"}`);
+                div.setAttribute("class","col col-12 justify-content-center align-items-center");
+                div.innerHTML = `
+                <div id="${element.id}" class="card mt-3" style="width: auto-rem;">
+                    <div class="card-body">
+                        <h5 class="card-title text-center"><b>personas: </b>${element}</h5>
+
+                    </div>
+                </div>`
+            modalBody.appendChild(div)
+            }
+        console.log(response);
+        } else {
+            console.error("ta vacio");
+        }
+    } catch (error) {
+        console.error("Error de red: ", error);
+    }
+} */
+/* async function getConsulta33() {
+    try {
+        const response = await (await fetch(`${URL}${urlPersona}/consulta33`)).json();
+
+        // Verificar si la respuesta de la API coincide con el mensaje de no hay resultados
+        if (response == "") {
+            modalTitle.innerHTML = '';
+            let h4 = document.createElement("h4");
+            h4.setAttribute("class", "text-center");
+            h4.innerHTML = `Consulta 33`;
+            modalTitle.appendChild(h4);
+            modalBody.innerHTML = '';
+            let mensajeNoEmpleados = document.createElement("p");
+            mensajeNoEmpleados.setAttribute("class", "text-center");
+            mensajeNoEmpleados.textContent = "No se encontraron Pacientes que hayan comprado algo";
+            modalBody.appendChild(mensajeNoEmpleados);
+        } else if (response && response.length > 0) {
+            // Hay resultados, mostrarlos en el modal
+            modalTitle.innerHTML = '';
+            let h4 = document.createElement("h4");
+            h4.setAttribute("class", "text-center");
+            h4.innerHTML = `Consulta 18 <br>Fecha: ${anioElegido}`;
+            modalTitle.appendChild(h4);
+            modalBody.innerHTML = '';
+            for (const element of response) {
+                let div = document.createElement("div");
+                div.setAttribute("id", `${"IdBorrar"}`);
+                div.setAttribute("class", "col col-12 justify-content-center align-items-center");
+                div.innerHTML = `
+                <div id="${element.id}" class="card mt-3" style="width: auto-rem;">
+                    <div class="card-body">
+                        <h5 class="card-title text-center"><b>Empleado: </b>${element.empleado}</h5>
+                        <p class="card-text text-center"><b>Cantidad de ventas: </b>${element.cantidadVentas}</p>
+                    </div>
+                </div>`;
+                modalBody.appendChild(div);
+            }
+        } else {
+            // Otro manejo de error si es necesario
+            console.error("La respuesta de la API no es válida.");
+        }
+    } catch (error) {
+        console.error("Error de red: ", error);
+    }
+} */
+async function getConsulta36() {
+    try {
+        const response = await (await fetch(`${URL}${urlPersona}/consulta366`)).json();
+        console.log(response);
+        if (response !== undefined && response !== null) {
+            let modalTitle = document.getElementById("TituloResultadoConsultaInventario");
+            let h1 = document.createElement("h4");
+            h1.innerHTML = "Consulta 36";
+            modalTitle.appendChild(h1);
+            let modalBody = document.getElementById("resultadoConsultaInventario");
+
+            if (response === 0) {
+                // Si la respuesta es 0, mostrarlo como resultado
+                let div = document.createElement("div");
+                div.setAttribute("id", `${"IdBorrar"}`);
+                div.setAttribute("class", "col col-12 justify-content-center align-items-center");
+                div.innerHTML = `
+                <div id="resultado" class="card mt-3" style="width: auto-rem;">
+                    <div class="card-body">
+                        <h5 class="card-title text-center"><b>pacientes: </b>no hay</h5>
+                    </div>
+                </div>`;
+                modalBody.appendChild(div);
+            } else if (Array.isArray(response)) {
+                // Si la respuesta es un arreglo, mostrar cada elemento
+                for (const element of response) {
+                    let div = document.createElement("div");
+                    div.setAttribute("id", `${"IdBorrar"}`);
+                    div.setAttribute("class", "col col-12 justify-content-center align-items-center");
+                    div.innerHTML = `
+                    <div id="${element.id}" class="card mt-3" style="width: auto-rem;">
+                        <div class="card-body">
+                            <h5 class="card-title text-center"><b>personas: </b>${element}</h5>
+                        </div>
+                    </div>`;
+                    modalBody.appendChild(div);
+                }
+            } else {
+                console.error("La respuesta de la API no es válida.");
+            }
+        } else {
+            console.error("La respuesta de la API está vacía.");
         }
     } catch (error) {
         console.error("Error de red: ", error);
