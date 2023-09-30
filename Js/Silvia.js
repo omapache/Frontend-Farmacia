@@ -204,3 +204,4 @@ async function getConsulta17() {
         console.error("Error de red: ", error);
     }
 }
+
