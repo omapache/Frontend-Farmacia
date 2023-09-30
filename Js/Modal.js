@@ -62,7 +62,7 @@ export function cargarProveedores(select) {
             console.error('Error al cargar los proveedores:', error);
         });
 }
-function cargarMedicamentos(selects) {
+export function cargarMedicamentos(select) {
     fetch('http://localhost:5115/api/farmacia/descripcionMedicamento')
         .then(response => response.json()) // Parsear la respuesta JSON
         .then(data => {
