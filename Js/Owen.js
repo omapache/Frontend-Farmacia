@@ -90,7 +90,7 @@ botonConsulta36.addEventListener("click", function (e) {
     e.preventDefault(); // Evita el envío del formulario por defecto
     getConsulta36();
 });
-
+/* toy jincho */
 
 inputFecha.addEventListener('input', function () {
     // Obtén el valor del campo de fecha
