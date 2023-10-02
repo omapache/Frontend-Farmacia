@@ -646,3 +646,8 @@ main .btn-send:hover {
 .registros {
 	color: #4067a1;
 }
+
+img{
+	height: 700px;
+	width: 300px;
+}
