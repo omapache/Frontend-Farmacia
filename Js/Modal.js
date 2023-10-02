@@ -1,12 +1,11 @@
 let botonCerrarModal = document.getElementById('CerrarModal');
 
-
 if (botonCerrarModal) {
     botonCerrarModal.addEventListener('click', function () {
         cerrarModal();
     });
 }
-
+/* 
 // Obtén el elemento select por su ID
 
 export function validarAnio(inputAnio) {
@@ -15,7 +14,7 @@ export function validarAnio(inputAnio) {
         abrirModal();
     } 
 }
-
+ */
 
 function cerrarModal() {
     // Obtiene el elemento modal por su id
@@ -25,9 +24,9 @@ function cerrarModal() {
     if (modal) {
         modal.classList.remove('show');
         modal.style.display = 'none';
-        var modalTitle = document.getElementById('TituloResultadoConsultaInventario');
+        var modalTitle = document.getElementById('TituloResultadoConsulta');
         modalTitle.innerHTML = '';
-        var modalBody = document.getElementById('resultadoConsultaInventario');
+        var modalBody = document.getElementById('resultadoConsulta');
         modalBody.innerHTML = '';
     }
 }

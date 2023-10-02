@@ -52,6 +52,14 @@
 		<main>
 			<a class="home" href="homeEmpleado.html"><h1 class="title">Consultas relacionadas con empleados</h1></a>
 			<div class="info-data">
+                
+                
+                <!-- 37 boton  Obtener el medicamento más caro.-->
+                <button class="btn btn-secondary" id="botonConsulta37" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    <div>
+                        <b>Consulta número: 37 </b>
+                        <p>Empleados que no realizaron ventas en abril de 2023.</p>
+
 				
                 <!-- diezyochoavo boton -->
                 <div class="btn btn-secondary" id="botonConsulta18">
@@ -122,6 +130,24 @@
                                 </div>
                             </div>
                             <div class="modal-body" id="resultadoConsultaInventario">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                                    id="CerrarModal">Close</button>
+                            </div>
+                        </div>
+                <!-- Fin 37 boton -->
+
+                
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <div class="modal-title fs-5 mx-auto" id="TituloResultadoConsulta">
+                                </div>
+                            </div>
+                            <div class="modal-body" id="resultadoConsulta">
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
