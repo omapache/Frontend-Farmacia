@@ -651,3 +651,8 @@ img{
 	height: 700px;
 	width: 300px;
 }
+
+.btn .btn-primary {
+	background-color: #5e9cee;
+	border-color: #ffffff;
+}

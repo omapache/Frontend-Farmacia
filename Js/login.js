@@ -27,14 +27,6 @@ async function Validar() {
 
     try {
         const response = await fetch(`${URL}${urlValidation}`, config);
-        
-        /* setTimeout(function(){
-            console.log(response);
-        }, 10000);
-        
-        console.log(response); */
-
-
         if (response.ok) {
             const responseRefresh = await fetch(`${URL}${urlRefresh}`, config);
             if(responseRefresh.ok) {
