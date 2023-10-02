@@ -45,11 +45,11 @@ async function getConsulta11() {
         console.log(response);
 
         if (response) {
-            let modalTitle = document.getElementById("TituloResultadoConsultaInventario");
+            let modalTitle = document.getElementById("TituloResultadoConsulta");
             let h1 = document.createElement("h4");
             h1.innerHTML = "Consulta 11";
             modalTitle.appendChild(h1);
-            let modalBody = document.getElementById("resultadoConsultaInventario");
+            let modalBody = document.getElementById("resultadoConsulta");
             for(const element of response){
                 let div = document.createElement("div");
                 div.setAttribute("id",`${"IdBorrar"}`);
@@ -78,11 +78,11 @@ async function getConsulta29() {
         console.log(response);
 
         if (response) {
-            let modalTitle = document.getElementById("TituloResultadoConsultaInventario");
+            let modalTitle = document.getElementById("TituloResultadoConsulta");
             let h1 = document.createElement("h4");
             h1.innerHTML = "Consulta 29";
             modalTitle.appendChild(h1);
-            let modalBody = document.getElementById("resultadoConsultaInventario");
+            let modalBody = document.getElementById("resultadoConsulta");
             for(const element of response){
                 let div = document.createElement("div");
                 div.setAttribute("id",`${"IdBorrar"}`);
@@ -115,8 +115,8 @@ async function getConsulta35(anioElegido) {
 
         const data = await response.json();
 
-        let modalTitle = document.getElementById("TituloResultadoConsultaInventario");
-        let modalBody = document.getElementById("resultadoConsultaInventario");
+        let modalTitle = document.getElementById("TituloResultadoConsulta");
+        let modalBody = document.getElementById("resultadoConsulta");
         modalTitle.innerHTML = '';
         let h4 = document.createElement("h4");
         h4.setAttribute("class", "text-center");
@@ -141,7 +141,6 @@ async function getConsulta35(anioElegido) {
         } else {
             console.error("El JSON recibido no es un arreglo válido.");
         }
-
     } catch (error) {
         console.error("Error: ", error);
     }

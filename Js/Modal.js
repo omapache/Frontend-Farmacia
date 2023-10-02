@@ -5,7 +5,7 @@ if (botonCerrarModal) {
         cerrarModal();
     });
 }
-/* 
+
 // Obtén el elemento select por su ID
 
 export function validarAnio(inputAnio) {
@@ -14,7 +14,7 @@ export function validarAnio(inputAnio) {
         abrirModal();
     } 
 }
- */
+
 
 function cerrarModal() {
     // Obtiene el elemento modal por su id

@@ -38,7 +38,7 @@ async function getConsulta4() {
             if (response.length > 0) {
                 let modalTitle = document.getElementById("TituloResultadoConsulta");
                 let h1 = document.createElement("h4");
-                h1.innerHTML = "Consulta 1";
+                h1.innerHTML = "Consulta 4";
                 modalTitle.appendChild(h1);
                 let modalBody = document.getElementById("resultadoConsulta");
                 for (const element of response) {

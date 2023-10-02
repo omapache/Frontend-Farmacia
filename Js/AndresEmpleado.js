@@ -36,7 +36,7 @@ async function getConsulta37() {
                 div.innerHTML = `
                     <div id="${element.id}" class="card mt-3" style="width: auto-rem;">
                         <div class="card-body">
-                            <h5 class="card-title text-center"><b>Empleado: </b>${element.Nombre}</h5>
+                            <h5 class="card-title text-center"><b>Empleado: </b>${element.nombre}</h5>
                         </div>
                     </div>`
                 modalBody.appendChild(div)

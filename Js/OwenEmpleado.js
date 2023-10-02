@@ -8,8 +8,8 @@ const urlDetalleMovimiento = "detallemovimiento";
 const urlPersona = "persona";
 const headers = new Headers({ 'Content-Type': 'application/json' });
 
-let modalTitle = document.getElementById("TituloResultadoConsultaInventario");
-let modalBody = document.getElementById("resultadoConsultaInventario");
+let modalTitle = document.getElementById("TituloResultadoConsulta");
+let modalBody = document.getElementById("resultadoConsulta");
 var inputAnio18 = document.getElementById('inputAnio18');
 inputAnio18.addEventListener('input', function () {
     validarAnio(inputAnio18);
@@ -70,7 +70,7 @@ async function getConsulta27(anioElegido) {
         const response = await (await fetch(`${URL}${urlPersona}/consulta27/${anioElegido}`)).json();
 
         // Verificar si la respuesta de la API coincide con el mensaje de no hay resultados
-        if (response == "No se encontraron empleados con menos de 5 ventas en 2023") {
+        if (response == "No se encontraron empleados con menos de 5 ventas en " + anioElegido) {
             modalTitle.innerHTML = '';
             let h4 = document.createElement("h4");
             h4.setAttribute("class", "text-center");
@@ -79,7 +79,7 @@ async function getConsulta27(anioElegido) {
             modalBody.innerHTML = '';
             let mensajeNoEmpleados = document.createElement("p");
             mensajeNoEmpleados.setAttribute("class", "text-center");
-            mensajeNoEmpleados.textContent = "No se encontraron empleados con menos de 5 ventas en 2023";
+            mensajeNoEmpleados.textContent = "No se encontraron empleados con menos de 5 ventas en " + anioElegido;
             modalBody.appendChild(mensajeNoEmpleados);
         } else if (response && response.length > 0) {
             // Hay resultados, mostrarlos en el modal

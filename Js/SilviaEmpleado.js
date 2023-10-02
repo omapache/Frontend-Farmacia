@@ -47,11 +47,11 @@ async function getConsulta20() {
         console.log(response);
 
         if (response) {
-            let modalTitle = document.getElementById("TituloResultadoConsultaInventario");
+            let modalTitle = document.getElementById("TituloResultadoConsulta");
             let h1 = document.createElement("h4");
             h1.innerHTML = "Consulta 20";
             modalTitle.appendChild(h1);
-            let modalBody = document.getElementById("resultadoConsultaInventario");
+            let modalBody = document.getElementById("resultadoConsulta");
             for(const element of response){
                 let div = document.createElement("div");
                 div.setAttribute("id",`${"IdBorrar"}`);
@@ -79,8 +79,8 @@ async function getConsulta23(anioElegido) {
     try {
         const response = await fetch(`${URL}${urlPersona}/consulta23/emepladoSinVentas/${anioElegido}`);
 
-        let modalTitle = document.getElementById("TituloResultadoConsultaInventario");
-        let modalBody = document.getElementById("resultadoConsultaInventario");
+        let modalTitle = document.getElementById("TituloResultadoConsulta");
+        let modalBody = document.getElementById("resultadoConsulta");
         modalTitle.innerHTML = '';
         let h4 = document.createElement("h4");
         h4.setAttribute("class", "text-center");
@@ -128,19 +128,11 @@ async function getConsulta23(anioElegido) {
         console.error("Error de red: ", error);
     }
 }
-
 async function getConsulta32(anioElegido) {
     try {
         const response = await fetch(`${URL}${urlPersona}/consulta32/empleadosMaxMedi/${anioElegido}`);
-
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-
-        const data = await response.json(); // Extract the JSON from the response
-
-        let modalTitle = document.getElementById("TituloResultadoConsultaInventario");
-        let modalBody = document.getElementById("resultadoConsultaInventario");
+        let modalTitle = document.getElementById("TituloResultadoConsulta");
+        let modalBody = document.getElementById("resultadoConsulta");
         modalTitle.innerHTML = '';
         let h4 = document.createElement("h4");
         h4.setAttribute("class", "text-center");
@@ -148,25 +140,41 @@ async function getConsulta32(anioElegido) {
         modalTitle.appendChild(h4);
         modalBody.innerHTML = '';
 
-        if (Array.isArray(data)) { 
-            for (const element of data) {
-                let div = document.createElement("div");
-                div.setAttribute("id", `${"IdBorrar"}`);
-                div.setAttribute("class", "col col-12 justify-content-center align-items-center");
-                div.innerHTML = `
-                <div id="${element.id}" class="card mt-3" style="width: auto-rem;">
-                    <div class="card-body">
-                        <h5 class="card-title text-center"><b>Id del empleado: </b>${element.empleadoId}</h5>
-                        <p class="card-text"><b>Cantidad de medicamentos diferentes: </b>${element.medicamentosDistintos}</p>
-                    </div>
-                </div>`;
-                modalBody.appendChild(div);
-            }
-        } else {
-            console.error("El JSON recibido no es un arreglo válido.");
-        }
+        // Verificar el tipo de contenido de la respuesta
+        const contentType = response.headers.get('Content-Type');
 
+        if (contentType && contentType.includes('application/json')) {
+            // Si la respuesta es JSON, analizarla
+            const data = await response.json();
+
+            // Continuar con la iteración si es un arreglo JSON válido
+            let div = document.createElement("div");
+            div.setAttribute("id", `${"IdBorrar"}`);
+            div.setAttribute("class", "col col-12 justify-content-center align-items-center");
+            div.innerHTML = `
+            <div id="${data.id}" class="card mt-3" style="width: auto-rem;">
+                <div class="card-body">
+                <h5 class="card-title text-center"><b>Id del empleado: </b>${data.empleadoId}</h5>
+                <p class="card-text"><b>Cantidad de medicamentos diferentes: </b>${data.medicamentosDistintos}</p>
+                </div>
+            </div>`
+            modalBody.appendChild(div);
+                
+        } else {
+            // Si no es JSON, mostrar el contenido de la respuesta como texto
+            const textContent = await response.text();
+            let div = document.createElement("div");
+            div.setAttribute("id", `${"IdBorrar"}`);
+                    div.setAttribute("class", "col col-12 justify-content-center align-items-center");
+                    div.innerHTML = `
+                    <div id="id" class="card mt-3" style="width: auto-rem;">
+                        <div class="card-body">
+                            <h5 class="card-title text-center"><b>Proveedor: <br> </b>${textContent}</h5>
+                        </div>
+                    </div>`
+                    modalBody.appendChild(div);
+        }
     } catch (error) {
-        console.error("Error: ", error);
+        console.error("Error de red: ", error);
     }
 }

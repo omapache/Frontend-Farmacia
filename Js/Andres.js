@@ -415,7 +415,7 @@ async function getConsulta34() {
     };
 
     try {
-        const response = await (await fetch(`${URL}${urlInventario}/consulta34`)).json();
+        const response = await (await fetch(`${URL}${urlInventario}/consulta9/2023`)).json();
         console.log(response);
         /*  {mes: 8, medicamento: 'Aspirina', cantidad: 38} */
         if (response.length > 0) {
@@ -431,9 +431,9 @@ async function getConsulta34() {
                 div.innerHTML = `
                     <div id="${element.id}" class="card mt-3" style="width: auto-rem;">
                         <div class="card-body">
-                            <h5 class="card-title text-center"><b>Medicamento: </b>${element.Nombre}</h5>
-                            <p class="card-text"><b>Stock: </b>${element.Stock}</p>
-                            <p class="card-text"><b>Fecha Expiracion: </b>${element.FechaExpiracion}</p>
+                            <h5 class="card-title text-center"><b>Medicamento: </b>${element.nombre}</h5>
+                            <p class="card-text"><b>Stock: </b>${element.stock}</p>
+                            <p class="card-text"><b>Fecha Expiracion: </b>${element.fechaExpiracion}</p>
                         </div>
                     </div>`
                 modalBody.appendChild(div)

@@ -9,8 +9,8 @@ const urlDetalleMovimiento = "detallemovimiento";
 const urlPersona = "persona";
 const headers = new Headers({ 'Content-Type': 'application/json' });
 
-let modalTitle = document.getElementById("TituloResultadoConsultaInventario");
-let modalBody = document.getElementById("resultadoConsultaInventario");
+let modalTitle = document.getElementById("TituloResultadoConsulta");
+let modalBody = document.getElementById("resultadoConsulta");
 
 var selectMedicamento12 = document.getElementById('dropdownMedicamento12');
 if (selectMedicamento12) {
@@ -24,6 +24,11 @@ botonConsulta12.addEventListener("click", function (e) {
     e.preventDefault(); // Evita el envío del formulario por defecto
     getConsulta12();
 });
+const botonConsulta30 = document.getElementById('botonConsulta30');
+botonConsulta30.addEventListener("click", function (e) {
+    e.preventDefault(); // Evita el envío del formulario por defecto
+    getConsulta30();
+});
 const botonConsulta33 = document.getElementById('botonConsulta33');
 botonConsulta33.addEventListener("click", function (e) {
     e.preventDefault(); // Evita el envío del formulario por defecto
@@ -36,6 +41,7 @@ async function getConsulta12() {
     try {
         const response = await (await fetch(`${URL}${urlInventario}/consulta12/${MedicamentosSeleccionadoNombre}`)).json();
         if (response) {
+            console.log(response);
             modalTitle.innerHTML = '';
             let h4 = document.createElement("h4");
             h4.setAttribute("class", "text-center");
@@ -50,6 +56,8 @@ async function getConsulta12() {
                 <div id="${element.id}" class="card mt-3" style="width: auto-rem;">
                     <div class="card-body">
                         <h5 class="card-title text-center"><b>Paciente: </b>${element.nombre}</h5>
+                        <p class="card-text text-center"><b>Cantidad de veces: </b>${element.cantidadTotal}</p>
+
                     </div>
                 </div>`
                 modalBody.appendChild(div)
@@ -62,6 +70,36 @@ async function getConsulta12() {
     }
 }
 
+async function getConsulta30() {
+    try {
+        const response = await (await fetch(`${URL}${urlPersona}/consulta30`)).json();
+        if (response) {
+            let modalTitle = document.getElementById("TituloResultadoConsulta");
+            let h1 = document.createElement("h4");
+            h1.innerHTML = "Consulta 30";
+            modalTitle.appendChild(h1);
+            let modalBody = document.getElementById("resultadoConsulta");
+            for(const element of response){
+                let div = document.createElement("div");
+                div.setAttribute("id",`${"IdBorrar"}`);
+                div.setAttribute("class","col col-12 justify-content-center align-items-center");
+                div.innerHTML = `
+                <div id="${element.id}" class="card mt-3" style="width: auto-rem;">
+                    <div class="card-body">
+                        <h5 class="card-title text-center"><b>personas: </b>${element}</h5>
+
+                    </div>
+                </div>`
+            modalBody.appendChild(div)
+            }
+        console.log(response);
+        } else {
+            console.error("ta vacio");
+        }
+    } catch (error) {
+        console.error("Error de red: ", error);
+    }
+}
 async function getConsulta33() {
     try {
         const response = await (await fetch(`${URL}${urlPersona}/consulta33`)).json();
@@ -83,7 +121,7 @@ async function getConsulta33() {
             modalTitle.innerHTML = '';
             let h4 = document.createElement("h4");
             h4.setAttribute("class", "text-center");
-            h4.innerHTML = `Consulta 18 <br>Fecha: ${anioElegido}`;
+            h4.innerHTML = `Consulta 33 `;
             modalTitle.appendChild(h4);
             modalBody.innerHTML = '';
             for (const element of response) {
@@ -93,8 +131,8 @@ async function getConsulta33() {
                 div.innerHTML = `
                 <div id="${element.id}" class="card mt-3" style="width: auto-rem;">
                     <div class="card-body">
-                        <h5 class="card-title text-center"><b>Empleado: </b>${element.empleado}</h5>
-                        <p class="card-text text-center"><b>Cantidad de ventas: </b>${element.cantidadVentas}</p>
+                        <h5 class="card-title text-center"><b>Paciente: </b>${element.paciente}</h5>
+                        <p class="card-text text-center"><b>Total Gastado: </b>${element.totalGastado}</p>
                     </div>
                 </div>`;
                 modalBody.appendChild(div);

@@ -79,11 +79,11 @@ async function getConsulta2() {
         console.log(response);
 
         if (response) {
-            let modalTitle = document.getElementById("TituloResultadoConsultaInventario");
+            let modalTitle = document.getElementById("TituloResultadoConsulta");
             let h1 = document.createElement("h4");
             h1.innerHTML = "Consulta 2";
             modalTitle.appendChild(h1);
-            let modalBody = document.getElementById("resultadoConsultaInventario");
+            let modalBody = document.getElementById("resultadoConsulta");
             for(const element of response){
                 let div = document.createElement("div");
                 div.setAttribute("id",`${"IdBorrar"}`);
@@ -109,8 +109,8 @@ async function getConsulta2() {
 }
 
 async function getConsulta5() {
-    let modalTitle = document.getElementById("TituloResultadoConsultaInventario");
-    let modalBody = document.getElementById("resultadoConsultaInventario");
+    let modalTitle = document.getElementById("TituloResultadoConsulta");
+    let modalBody = document.getElementById("resultadoConsulta");
     let Medicamentos = document.getElementById('dropdownMedicamento5');
     let MedicamentosSeleccionado = Medicamentos.selectedIndex;
     let MedicamentosSeleccionadoNombre = Medicamentos.options[MedicamentosSeleccionado].text;
@@ -149,13 +149,13 @@ async function getConsulta8() {
         const textContent = await response.text();
         console.log(textContent);
 
-        let modalTitle = document.getElementById("TituloResultadoConsultaInventario");
+        let modalTitle = document.getElementById("TituloResultadoConsulta");
         modalTitle.innerHTML = '';
         let h1 = document.createElement("h4");
         h1.innerHTML = "Consulta 8";
         modalTitle.appendChild(h1);
 
-        let modalBody = document.getElementById("resultadoConsultaInventario");
+        let modalBody = document.getElementById("resultadoConsulta");
         modalBody.innerHTML = '';
 
         let div = document.createElement("div");
@@ -181,13 +181,13 @@ async function getConsulta14() {
         const textContent = await response.text();
         console.log(textContent);
 
-        let modalTitle = document.getElementById("TituloResultadoConsultaInventario");
+        let modalTitle = document.getElementById("TituloResultadoConsulta");
         modalTitle.innerHTML = '';
         let h1 = document.createElement("h4");
         h1.innerHTML = "Consulta 14";
         modalTitle.appendChild(h1);
 
-        let modalBody = document.getElementById("resultadoConsultaInventario");
+        let modalBody = document.getElementById("resultadoConsulta");
         modalBody.innerHTML = '';
 
         let div = document.createElement("div");
@@ -212,11 +212,11 @@ async function getConsulta17() {
         console.log(response);
 
         if (response) {
-            let modalTitle = document.getElementById("TituloResultadoConsultaInventario");
+            let modalTitle = document.getElementById("TituloResultadoConsulta");
             let h1 = document.createElement("h4");
             h1.innerHTML = "Consulta 17";
             modalTitle.appendChild(h1);
-            let modalBody = document.getElementById("resultadoConsultaInventario");
+            let modalBody = document.getElementById("resultadoConsulta");
             for(const element of response){
                 let div = document.createElement("div");
                 div.setAttribute("id",`${"IdBorrar"}`);
@@ -245,11 +245,11 @@ async function getConsulta38() {
         console.log(response);
 
         if (response) {
-            let modalTitle = document.getElementById("TituloResultadoConsultaInventario");
+            let modalTitle = document.getElementById("TituloResultadoConsulta");
             let h1 = document.createElement("h4");
             h1.innerHTML = "Consulta 38";
             modalTitle.appendChild(h1);
-            let modalBody = document.getElementById("resultadoConsultaInventario");
+            let modalBody = document.getElementById("resultadoConsulta");
             for(const element of response){
                 let div = document.createElement("div");
                 div.setAttribute("id",`${"IdBorrar"}`);
@@ -285,8 +285,8 @@ async function getConsulta26(anioElegido, mesElegido) {
 
         const data = await response.text();
 
-        let modalTitle = document.getElementById("TituloResultadoConsultaInventario");
-        let modalBody = document.getElementById("resultadoConsultaInventario");
+        let modalTitle = document.getElementById("TituloResultadoConsulta");
+        let modalBody = document.getElementById("resultadoConsulta");
         modalTitle.innerHTML = '';
         let h4 = document.createElement("h4");
         h4.setAttribute("class", "text-center");
